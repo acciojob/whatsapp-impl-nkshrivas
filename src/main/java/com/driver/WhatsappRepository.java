@@ -99,7 +99,10 @@ public class WhatsappRepository {
             messageList.add(message);
             groupMessageMap.put(group,messageList);
         }
-        groupMessageMap.get(group).add(message);
+       else{
+            groupMessageMap.get(group).add(message);
+
+        }
 
        senderMap.put(message,sender);
 
@@ -123,9 +126,11 @@ public class WhatsappRepository {
         if(admin!=approver){
             throw new Exception("Approver does not have rights");
         }
-        if(groupUserMap.get(group).contains(user)){
+        if(!groupUserMap.get(group).contains(user)){
             throw new Exception("User is not a participant");
         }
+
+
         adminMap.put(group,user);
 
         return "SUCCESS";
