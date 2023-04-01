@@ -76,9 +76,8 @@ public class WhatsappRepository {
         // Return the message id.
         messageId++;
 
-        Date timestamp=new Date();
 
-        message.put(messageId,new Message(messageId,content,timestamp));
+        message.put(messageId,new Message(messageId,content));
 
         return messageId;
 
